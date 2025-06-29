@@ -7,33 +7,25 @@ const articleTitle = document.querySelector(".article-hero h1");
 
 const stickyMetadata = articleHero.offsetHeight;
 const navBarHeight = navbar.offsetHeight;
-let topMeta = "";
 
-if (articleTitle.innerText.length >= 48) {
-  metadataBody.style.top = "-7.2em";
-  topMeta = "-7.2em";
-} else if (articleTitle.innerText.length <= 28) {
-  metadataBody.style.top = "-3.2em";
-  topMeta = "-3.2em";
-} else {
-  metadataBody.style.top = "-5.2em";
-  topMeta = "-5.2em";
-}
+metadataBody.style.marginTop = `-${metadataTitle.offsetHeight + 19.92}px`;
 
 window.addEventListener("scroll", () => {
   const footerRect = footer.getBoundingClientRect();
   const metadataHeight = metadata.offsetHeight;
 
   if (window.pageYOffset > stickyMetadata - navBarHeight) {
-    metadataTitle.style.visibility = "visible";
-    metadataBody.style.top = `0`;
-    metadataBody.style.transition = "top 0.5s ease-in-out";
+    metadataTitle.style.opacity = "1";
+    metadataTitle.style.transition = "opacity 0.3s ease-in-out 0.2s";
+    metadataBody.style.marginTop = `0`;
+    metadataBody.style.transition = "margin-top 0.5s ease-in-out";
     metadata.classList.add("metadataFixed");
     metadata.classList.remove("metadataStop");
   } else {
-    metadataTitle.style.visibility = "hidden";
-    metadataBody.style.top = topMeta;
-    metadataBody.style.transition = "top 0.8s ease-in-out";
+    metadataTitle.style.opacity = "0";
+    metadataTitle.style.transition = "opacity 0.3s ease-in-out";
+    metadataBody.style.marginTop = `-${metadataTitle.offsetHeight + 19.92}px`;
+    metadataBody.style.transition = "margin-top 0.5s ease-in-out";
     metadata.classList.remove("metadataFixed", "metadataStop");
   }
 

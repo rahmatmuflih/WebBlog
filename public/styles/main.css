@@ -623,7 +623,7 @@ a .btn-footer:hover {
 }
 
 .meta-container h2 {
-  visibility: hidden;
+  opacity: 0;
   margin-top: 16px;
 }
 
