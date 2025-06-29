@@ -1,0 +1,49 @@
+<footer id="footer">
+    <% for(let i=0;i<3;i++) {%>
+        <div class="bg-footer">
+            <% for (let j=0; j < 9; j++) {%>
+                <img src="/images/plus_icon.png" alt="" width="9" height="9">
+                <% } %>
+        </div>
+        <% } %>
+            <div class="container-blog">
+                <p><span>/</span>&nbsp;Blogs</p>
+                <h2>Here's Just Project for practicing using Express js and EJS. Click down below for Github Repo.</h2>
+                <a href="https://github.com/rahmatmuflih" target="_blank">
+                    <div class="btn-footer">
+                        Learn More
+                    </div>
+                </a>
+            </div>
+            <div class="resources">
+                <p><span>/</span>&nbsp;&nbsp;Resources</p>
+                <p>for source dataset just click here:</p>
+                <p>
+                    <a href="https://www.kaggle.com/datasets/sentinel3734/neurologica-blog-posts" target="_blank">
+                        Kaggle
+                    </a>
+                </p>
+                <p>for inspiration of this blog i just using all their style:</p>
+                <p>
+                    <a href="https://stripe.dev/blog">
+                        Stripe
+                    </a>
+                </p>
+            </div>
+            <div class="copyright">
+                <img src="/images/logo.png" alt="" width="40" height="40">
+                <% if(locals.currYear) {%>
+                    <p><span>&copy;</span>
+                        <%= currYear %> NEUROBLOG
+                    </p>
+                    <% } %>
+            </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/categorize.js"></script>
+<script src="/js/accordion.js"></script>
+<script src="/js/metadata.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<main id="main">
+    <% if(locals.article && locals.text && locals.minRead){ %>
+        <div class="metadata" id="metadata">
+            <div class="meta-container" id="meta-conter">
+                <h2 id="metadata-title">
+                    <%= article.title %>
+                </h2>
+                <div class="metadata-body" id="metadata-body">
+                    <div class="meta-head"><span>/</span> &nbsp;Metadata</div>
+                    <div class="meta-body">
+                        <div class="meta-item">
+                            <p>DATE :</p>
+                            <p>
+                                <%= article.publication_date %>
+                            </p>
+                        </div>
+                        <div class="meta-item">
+                            <p>AUTHOR :</p>
+                            <p>
+                                <%= article.author %>
+                            </p>
+                        </div>
+                        <div class="meta-item">
+                            <p>READING TIME :</p>
+                            <p>
+                                <%= minRead + " Min Read" %>
+                            </p>
+                        </div>
+                        <div class="meta-item">
+                            <p>CATEGORIES :</p>
+                            <p>
+                                <%= article.categories %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>

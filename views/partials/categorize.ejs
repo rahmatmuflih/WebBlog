@@ -1,0 +1,54 @@
+<main id="main">
+    <div class="categorize" id="categorize">
+        <h1>NeuroBlog <sup>(55)</sup></h1>
+        <div class="filters">
+            <div class="filter-title">
+                <p><span>/</span> &nbsp;Filters</p>
+                <div class="filter-icon" id="filter">
+                    <img src="/images/filter_icon.png" alt="" width="15" height="15">
+                    <img src="/images/drop_down_arrow_icon.png" alt="" width="8" height="8" id="drop-down">
+                    <img src="/images/drop_up_arrow_icon.png" alt="" width="8" height="8" id="drop-up">
+                </div>
+            </div>
+            <%if(locals.uniqueCategories){%>
+                <div class="filter-topic">
+                    <div class="topic-head">
+                        <img src="/images/opened_folder_icon.png" alt="" width="15" height="15">
+                        <span id="text-topic">Category</span>
+                    </div>
+                    <div class="topic-body" id="categories">
+                        <% uniqueCategories.forEach(uniqueCat=> {%>
+                            <div class="topic-item">
+                                <form action="/">
+                                    <input type="radio" name="choose">
+                                    <label name="choose">
+                                        <%= uniqueCat %>
+                                    </label>
+                                </form>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <div class="topic-body" id="publish-date">
+                        <% uniqueDates.forEach(uniqueDate=> {%>
+                            <div class="topic-item">
+                                <form action="/">
+                                    <input type="radio" name="choose">
+                                    <label name="choose">
+                                        <%= uniqueDate %>
+                                    </label>
+                                </form>
+                            </div>
+                            <% }); %>
+                    </div>
+                </div>
+                <%}%>
+                    <div class="filter-modal" id="filter-modal">
+                        <div class="filter-modal-container">
+                            <p id="cat">category <img src="/images/check_icon.png" alt="" width="15" height="15"
+                                    class="check"></p>
+                            <p id="pub">publish year <img src="/images/check_icon.png" alt="" width="15" height="15"
+                                    class="check"></p>
+                        </div>
+                    </div>
+        </div>
+    </div>

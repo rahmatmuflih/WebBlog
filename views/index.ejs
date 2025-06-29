@@ -1,0 +1,71 @@
+<%- include("partials/header.ejs") %>
+
+    <%- include("partials/categorize.ejs") %>
+
+        <div class="contents" id="content">
+            <div class="heading">
+                <div class="thead date"><span>/</span> &nbsp;Publication Date</div>
+                <div class="thead title"><span>/</span> Title</div>
+            </div>
+            <% if(locals.dates && locals.titles) {%>
+                <% for (let i=0; i < dates.length; i++) {%>
+                    <div class="body">
+                        <div class="content-container">
+                            <a href="/article/<%= id[i]%>" class="link-body">
+                                <div class="tbody date">
+                                    <li>
+                                        <span>
+                                            <%= dates[i] %>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="tbody title">
+                                    <li>
+                                        <% if(titles[i].length> 48){ %>
+                                            <%= titles[i].slice(0, 48) + "..." %>
+                                                <% } else{ %>
+                                                    <%= titles[i] %>
+                                                        <% } %>
+                                    </li>
+                                </div>
+                            </a>
+                            <div class="accordion-button" data-index="0">
+                                <img src="/images/plus_icon.png" alt="" width="20" height="20" class="plus">
+                                <img src="/images/minus_icon.png" alt="" width="20" height="20" class="minus">
+                            </div>
+                        </div>
+                        <div class="preview">
+                            <% if(locals.summary && locals.author && locals.categories){ %>
+                                <div class="summary">
+                                    <p>PREVIEW:</p>
+                                    <p>
+                                        <%= summary[i].slice(0, 150) + "..." %>
+                                    </p>
+                                </div>
+                                <div class="author">
+                                    <p>AUTHOR:</p>
+                                    <p>
+                                        <%= author[i] %>
+                                    </p>
+                                </div>
+                                <div class="categories">
+                                    <p>TOPIC:</p>
+                                    <% (categories[i].split(";").map((cat)=> cat.trim())).forEach( cat =>{%>
+                                        <p class="value">
+                                            <%= cat %>
+                                        </p>
+                                        <% }); %>
+                                </div>
+
+                                <% } %>
+
+                        </div>
+                        <a href="/article/<%= id[i]%>" class="read">
+                            Read
+                        </a>
+                    </div>
+                    <%}} %>
+        </div>
+        </main>
+
+        <%- include("partials/footer.ejs") %>

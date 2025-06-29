@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+    <% if(locals.text && locals.article) {%>
+
+        <div class="article-hero" id="article-hero">
+            <div class="bg-hero">
+                <% for(let j=0; j < 6; j++){ %>
+                    <img src="/images/plus_icon.png" alt="" width="9" height="9">
+                    <% } %>
+            </div>
+            <h1>
+                <%= article.title %>
+            </h1>
+            <div class="bg-hero">
+                <% for(let j=0; j < 6; j++){ %>
+                    <img src="/images/plus_icon.png" alt="" width="9" height="9">
+                    <% } %>
+            </div>
+        </div>
+
+        <%- include("partials/metadata.ejs") %>
+
+            <div class="article" id="article">
+                <p><span>/</span> &nbsp;Article</p>
+                <p>
+                    <%- text %>
+                </p>
+            </div>
+            <% } %>
+                </main>
+                <%- include("partials/footer.ejs") %>
